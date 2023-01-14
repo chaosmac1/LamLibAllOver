@@ -17,7 +17,9 @@ public static class Logger {
     public record ErrorMsgParas(string Msg, int LineNumber, string Path);
 
     public static ErrorMsgParas ErrorMsgFac(string msg, [CallerLineNumber] int lineNumber = 0,
-        [CallerFilePath] string path = null) => new ErrorMsgParas(Msg: msg, lineNumber, path);
+        [CallerFilePath] string? path = null) {
+        return new(msg, lineNumber, path ?? "");
+    }
 
     public static void ErrorMsg(ErrorMsgParas paras) {
         Console.ForegroundColor = ConsoleColor.Red;
@@ -28,7 +30,7 @@ public static class Logger {
         StackTrace stackTrace = new StackTrace(0, true);
         foreach (var i in stackTrace.GetFrames()) {
             Console.ResetColor();
-            Console.Write($"at {i.GetMethod().ToString()} in ");
+            Console.Write($"at {i.GetMethod()!} in ");
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.Write($"{i.GetFileName()}:line {i.GetFileLineNumber()}\n");
         }
@@ -37,7 +39,7 @@ public static class Logger {
     }
 
     public static void ErrorMsg(string msg, [CallerLineNumber] int lineNumber = 0,
-        [CallerFilePath] string path = null) {
+        [CallerFilePath] string? path = null) {
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Error MSG:");
         Console.ResetColor();

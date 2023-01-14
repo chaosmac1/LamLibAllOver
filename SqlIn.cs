@@ -5,7 +5,6 @@ public static class SqlIn {
         if (list.Count == 0) return "()";
         if (list.Count == 1) return $"('{list[0]}')";
 
-        string findInString;
         var builder = new StringBuilder();
         var end = list.Count - 1;
 
