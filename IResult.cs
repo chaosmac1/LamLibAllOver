@@ -12,14 +12,6 @@ public interface IGetErr<TErrValue> {
 
 public interface IEResult : IEquatable<EResult> {
     public ResultNone ToNone();
-
-    public static virtual bool operator ==(IEResult result, EResult status) {
-        return result.ToNone() == status;
-    }
-
-    public static virtual bool operator !=(IEResult result, EResult status) {
-        return result.ToNone() != status;
-    }
 }
 
 public interface IResultSwitch<TOk, EErr> {

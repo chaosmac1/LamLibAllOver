@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -15,7 +15,7 @@
         <PackageReleaseNotes>Add Merge/Ulong/CopyStream Functions
             Update Response Types
         </PackageReleaseNotes>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>2.0.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
     </PropertyGroup>
