@@ -15,7 +15,7 @@
         <PackageReleaseNotes>Add Merge/Ulong/CopyStream Functions
             Update Response Types
         </PackageReleaseNotes>
-        <PackageVersion>2.0.0</PackageVersion>
+        <PackageVersion>2.1.2</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
     </PropertyGroup>

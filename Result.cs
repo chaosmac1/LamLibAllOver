@@ -85,6 +85,30 @@ public readonly struct Result<OK, ERR> : IEResult, IGetOk<OK>, IGetErr<ERR>, IRe
         return Result<OK, TERR2>.Err(func(Err()));
     }
 
+    public async Task<Result<TOK2, ERR>> AndThenAsync<TOK2>(Func<OK, Task<Result<TOK2, ERR>>> func) {
+        if (Status == EResult.Err)
+            return Result<TOK2, ERR>.Err(Err());
+        return await func(Value);
+    }
+
+    public async Task<Result<TOK2, ERR>> AndAsync<TOK2>(Func<Task<Result<TOK2, ERR>>> action) {
+        if (Status == EResult.Err)
+            return Result<TOK2, ERR>.Err(Err());
+        return await action();
+    }
+
+    public async Task<Result<TOK2, ERR>> MapAsync<TOK2>(Func<OK, Task<TOK2>> func) {
+        return Status == EResult.Err
+            ? Result<TOK2, ERR>.Err(Err())
+            : Result<TOK2, ERR>.Ok(await func(Ok()));
+    }
+
+    public async Task<Result<OK, TERR2>> MapErrAsync<TERR2>(Func<ERR, Task<TERR2>> func) {
+        if (Status == EResult.Ok)
+            return Result<OK, TERR2>.Ok(Ok());
+        return Result<OK, TERR2>.Err(await func(Err()));
+    }
+
     public static Result<OK, ERR> Empty => new();
 
     public static Result<OK, ERR> Err(ERR value) {

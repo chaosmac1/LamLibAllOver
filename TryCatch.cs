@@ -1,16 +1,17 @@
 namespace LamLibAllOver;
 
-public class TryCatch {
-    public void VoidAction(Action action) {
+public static class TryCatch {
+    public static ResultErr<Exception> VoidAction(Action action) {
         try {
             action();
+            return ResultErr<Exception>.Ok();
         }
-        catch (Exception) {
-            // ignored
+        catch (Exception e) {
+            return ResultErr<Exception>.Err(e);
         }
     }
 
-    public Result<T, Exception> FuncWithT<T>(Func<T> func) {
+    public static Result<T, Exception> FuncWithT<T>(Func<T> func) {
         try {
             return Result<T, Exception>.Ok(func());
         }
