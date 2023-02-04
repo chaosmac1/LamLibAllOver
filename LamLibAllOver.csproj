@@ -12,10 +12,9 @@
         <RepositoryUrl>https://github.com/chaosmac1/LamLibAllOver</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Lam Lambda</PackageTags>
-        <PackageReleaseNotes>Add Merge/Ulong/CopyStream Functions
-            Update Response Types
+        <PackageReleaseNotes>Add Option Struct
         </PackageReleaseNotes>
-        <PackageVersion>2.1.2</PackageVersion>
+        <PackageVersion>2.2.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
     </PropertyGroup>

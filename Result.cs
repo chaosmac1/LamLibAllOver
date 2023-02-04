@@ -123,6 +123,18 @@ public readonly struct Result<OK, ERR> : IEResult, IGetOk<OK>, IGetErr<ERR>, IRe
         return Status == EResult.Ok ? ResultNone.Ok : ResultNone.Err;
     }
 
+    public static implicit operator ResultOk<OK>(Result<OK, ERR> result) {
+        return result == EResult.Err
+            ? ResultOk<OK>.Err()
+            : ResultOk<OK>.Ok(result.Ok());
+    }
+
+    public static implicit operator ResultErr<ERR>(Result<OK, ERR> result) {
+        return result == EResult.Err
+            ? ResultErr<ERR>.Err(result.Err())
+            : ResultErr<ERR>.Ok();
+    }
+
     public static bool operator ==(Result<OK, ERR> result, EResult status) {
         return result.Status == status;
     }
