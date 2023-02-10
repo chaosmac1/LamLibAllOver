@@ -14,9 +14,10 @@
         <PackageTags>Lam Lambda</PackageTags>
         <PackageReleaseNotes>Add Option Struct
         </PackageReleaseNotes>
-        <PackageVersion>2.2.0</PackageVersion>
+        <PackageVersion>2.3.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
