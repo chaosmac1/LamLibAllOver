@@ -43,6 +43,28 @@ public readonly struct Option<T> {
             : With(result.Ok());
     }
 
+    public static Result<Option<T>, E> ResultWrapper<E>(Result<T, E> result) {
+        return result.Map(x => NullSplit(x));
+    }
+
+    public static ResultOk<Option<T>> ResultOkWrapper(ResultOk<T> result) {
+        return result.Map(x => NullSplit(x));
+    }
+
+    public static Option<T> Transform<E>(Result<T, E> result) {
+        return result.Unwrap() switch {
+            { Ok: EResult.Ok } => NullSplit(result.Ok()),
+            _ => Empty
+        };
+    }
+
+    public static Option<T> Transform(ResultOk<T> result) {
+        return result.Unwrap() switch {
+            { Ok: EResult.Ok } => NullSplit(result.Ok()),
+            _ => Empty
+        };
+    }
+
     public static Option<T> NullSplit(T? value) {
         return value is null
             ? Empty
