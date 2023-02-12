@@ -43,6 +43,14 @@ public readonly struct Option<T> {
             : With(result.Ok());
     }
 
+    public static Option<T> Trim(ResultOk<T> resultOk) {
+        return resultOk == EResult.Ok ? With(resultOk.Ok()) : Empty;
+    }
+
+    public static Option<T> Trim(ResultOk<Option<T>> resultOk) {
+        return resultOk == EResult.Ok ? resultOk.Ok() : Empty;
+    }
+
     public static Result<Option<T>, E> ResultWrapper<E>(Result<T, E> result) {
         return result.Map(x => NullSplit(x));
     }

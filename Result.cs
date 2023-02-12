@@ -85,7 +85,6 @@ public readonly struct Result<OK, ERR> : IEResult, IGetOk<OK>, IGetErr<ERR>, IRe
         return Result<OK, TERR2>.Err(func(Err()));
     }
 
-
     public async Task<Result<TOK2, ERR>> AndThenAsync<TOK2>(Func<OK, Task<Result<TOK2, ERR>>> func) {
         if (Status == EResult.Err)
             return Result<TOK2, ERR>.Err(Err());
