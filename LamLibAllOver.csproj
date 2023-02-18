@@ -13,7 +13,7 @@
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Lam Lambda</PackageTags>
         <PackageReleaseNotes>Add More Function For Option Struct (Trim)</PackageReleaseNotes>
-        <PackageVersion>2.5.0</PackageVersion>
+        <PackageVersion>2.6.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

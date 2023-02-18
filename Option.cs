@@ -25,6 +25,21 @@ public readonly struct Option<T> {
             : value;
     }
 
+    public E Or<E>(E value) where E : T {
+        return _isSet
+            ? (E)_value!
+            : value;
+    }
+
+    public T? OrNull() {
+        if (_isSet)
+            return _value;
+        if (typeof(T).IsClass)
+            return default;
+        throw new NullReferenceException("Muss Be Class Type");
+    }
+
+
     public static Option<T> Empty => new();
 
     public static Option<T> With(T value) {
