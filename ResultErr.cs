@@ -93,6 +93,12 @@ public readonly struct ResultErr<ERR> : IEResult, IGetErr<ERR>, IResultSwitch<ob
         return new(EResult.Ok, true, default!);
     }
 
+    public Result<Ok, ERR> ToResultWithErr<Ok>() {
+        if (Status == EResult.Ok)
+            throw new Exception("Must Be Status Err");
+        return Result<Ok, ERR>.Err(Err());
+    }
+
     public ResultNone ToNone() {
         return Status == EResult.Ok ? ResultNone.Ok : ResultNone.Err;
     }

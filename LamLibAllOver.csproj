@@ -12,8 +12,8 @@
         <RepositoryUrl>https://github.com/chaosmac1/LamLibAllOver</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Lam Lambda</PackageTags>
-        <PackageReleaseNotes>Add More Function For Option Struct (Trim)</PackageReleaseNotes>
-        <PackageVersion>2.6.0</PackageVersion>
+        <PackageReleaseNotes>Add Func Work litel Simpler with Stack Trace Message</PackageReleaseNotes>
+        <PackageVersion>2.7.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
