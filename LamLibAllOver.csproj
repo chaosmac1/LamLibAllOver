@@ -13,7 +13,7 @@
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Lam Lambda</PackageTags>
         <PackageReleaseNotes>Add Func Work litel Simpler with Stack Trace Message</PackageReleaseNotes>
-        <PackageVersion>2.7.0</PackageVersion>
+        <PackageVersion>2.8.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

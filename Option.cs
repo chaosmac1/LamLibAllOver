@@ -13,6 +13,10 @@ public readonly struct Option<T> {
         return _isSet;
     }
 
+    public bool IsNotSet() {
+        return !_isSet;
+    }
+
     public T Unwrap() {
         if (!_isSet)
             throw new Exception("Try To Unwrap but Value Not Set");
