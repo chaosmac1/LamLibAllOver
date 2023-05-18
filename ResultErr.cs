@@ -110,4 +110,11 @@ public readonly struct ResultErr<ERR> : IEResult, IGetErr<ERR>, IResultSwitch<ob
     public static bool operator !=(ResultErr<ERR> result, EResult status) {
         return result.Status != status;
     }
+
+    public Result<OK, ERR> ConvertTo<OK>() {
+        if (this == EResult.Ok)
+            throw new Exception("Can Only Convert If Not OK");
+
+        return Result<OK, ERR>.Err(Err());
+    }
 }

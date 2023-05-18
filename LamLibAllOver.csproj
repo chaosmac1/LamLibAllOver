@@ -12,8 +12,8 @@
         <RepositoryUrl>https://github.com/chaosmac1/LamLibAllOver</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Lam Lambda</PackageTags>
-        <PackageReleaseNotes>Add Func Work litel Simpler with Stack Trace Message</PackageReleaseNotes>
-        <PackageVersion>2.8.0</PackageVersion>
+        <PackageReleaseNotes>Add Convert Add Change Function For Result And ResultErr</PackageReleaseNotes>
+        <PackageVersion>2.9.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

@@ -142,4 +142,12 @@ public readonly struct Result<OK, ERR> : IEResult, IGetOk<OK>, IGetErr<ERR>, IRe
     public static bool operator !=(Result<OK, ERR> result, EResult status) {
         return result.Status != status;
     }
+
+    public Result<OK2, ERR> ChangeOkType<OK2>() {
+        return Result<OK2, ERR>.Err(Err());
+    }
+
+    public Result<OK, ERR2> ChangeErrType<ERR2>() {
+        return Result<OK, ERR2>.Ok(Ok());
+    }
 }
