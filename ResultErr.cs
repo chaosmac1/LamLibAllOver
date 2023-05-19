@@ -117,4 +117,14 @@ public readonly struct ResultErr<ERR> : IEResult, IGetErr<ERR>, IResultSwitch<ob
 
         return Result<OK, ERR>.Err(Err());
     }
+
+    public EResult Out(out ERR? err) {
+        if (this == EResult.Ok) {
+            err = default;
+            return EResult.Ok;
+        }
+
+        err = Value2;
+        return EResult.Err;
+    }
 }

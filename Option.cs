@@ -92,6 +92,18 @@ public readonly struct Option<T> {
         };
     }
 
+    public Option<E> Map<E>(Func<T, E> func) {
+        return IsSet()
+            ? new Option<E>(func(_value))
+            : Option<E>.Empty;
+    }
+
+    public async Task<Option<E>> MapAsync<E>(Func<T, Task<E>> func) {
+        return IsSet()
+            ? new Option<E>(await func(_value))
+            : Option<E>.Empty;
+    }
+
     public static Option<T> NullSplit(T? value) {
         return value is null
             ? Empty

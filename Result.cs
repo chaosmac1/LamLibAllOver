@@ -150,4 +150,14 @@ public readonly struct Result<OK, ERR> : IEResult, IGetOk<OK>, IGetErr<ERR>, IRe
     public Result<OK, ERR2> ChangeErrType<ERR2>() {
         return Result<OK, ERR2>.Ok(Ok());
     }
+
+    public EResult Out(out ERR? err) {
+        if (this == EResult.Ok) {
+            err = default;
+            return EResult.Ok;
+        }
+
+        err = Value2;
+        return EResult.Err;
+    }
 }
