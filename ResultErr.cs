@@ -67,6 +67,12 @@ public readonly struct ResultErr<ERR> : IEResult, IGetErr<ERR>, IResultSwitch<ob
         return await func();
     }
 
+    public async Task<Result<OK, ERR>> AndThen<OK>(Func<Task<Result<OK, ERR>>> func) {
+        if (Status == EResult.Err)
+            return ConvertTo<OK>();
+        return await func();
+    }
+
     public async Task<ResultErr<ERR>> And(Func<Task<ResultErr<ERR>>> action) {
         if (Status == EResult.Err)
             return this;
@@ -80,6 +86,30 @@ public readonly struct ResultErr<ERR> : IEResult, IGetErr<ERR>, IResultSwitch<ob
     }
 
     private static readonly ResultErr<ERR> _empty = new();
+
+    public async Task<ResultErr<ERR>> AndAsync(Func<Task<ResultErr<ERR>>> func) {
+        if (Status == EResult.Err)
+            return this;
+        return await func();
+    }
+
+    public async Task<Result<OK, ERR>> AndAsync<OK>(Func<Task<Result<OK, ERR>>> func) {
+        if (Status == EResult.Err)
+            return ConvertTo<OK>();
+        return await func();
+    }
+
+    public async Task<ResultErr<ERR>> MapAsync(Func<Task> func) {
+        if (Status == EResult.Ok)
+            await func();
+        return this;
+    }
+
+    public ResultErr<ERR> Map(Action action) {
+        if (Status == EResult.Ok)
+            action();
+        return this;
+    }
 
     public static ResultErr<ERR> Empty() {
         return _empty;

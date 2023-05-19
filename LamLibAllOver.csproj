@@ -12,8 +12,8 @@
         <RepositoryUrl>https://github.com/chaosmac1/LamLibAllOver</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Lam Lambda</PackageTags>
-        <PackageReleaseNotes>Add Map / MapAsync Function For Option</PackageReleaseNotes>
-        <PackageVersion>2.11.0</PackageVersion>
+        <PackageReleaseNotes>Add More Function In ResultErr Like Map And</PackageReleaseNotes>
+        <PackageVersion>2.12.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
