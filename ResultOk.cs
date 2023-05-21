@@ -61,19 +61,19 @@ public readonly struct ResultOk<T> : IEResult, IGetOk<T>, IResultSwitch<T, objec
         return ResultOk<TOk>.Ok(func(Ok()));
     }
 
-    public async Task<ResultOk<TOk>> AndThen<TOk>(Func<T, Task<ResultOk<TOk>>> func) {
+    public async Task<ResultOk<TOk>> AndThenAsync<TOk>(Func<T, Task<ResultOk<TOk>>> func) {
         if (Status == EResult.Err)
             return ResultOk<TOk>.Err();
         return await func(Value);
     }
 
-    public async Task<ResultOk<TOk>> And<TOk>(Func<Task<ResultOk<TOk>>> action) {
+    public async Task<ResultOk<TOk>> AndAsync<TOk>(Func<Task<ResultOk<TOk>>> action) {
         if (Status == EResult.Err)
             return ResultOk<TOk>.Err();
         return await action();
     }
 
-    public async Task<ResultOk<TOk>> Map<TOk>(Func<T, Task<TOk>> func) {
+    public async Task<ResultOk<TOk>> MapAsync<TOk>(Func<T, Task<TOk>> func) {
         if (Status == EResult.Err)
             return ResultOk<TOk>.Err();
         return ResultOk<TOk>.Ok(await func(Ok()));

@@ -61,29 +61,24 @@ public readonly struct ResultErr<ERR> : IEResult, IGetErr<ERR>, IResultSwitch<ob
         return ResultErr<TERR2>.Err(func(Err()));
     }
 
-    public async Task<ResultErr<ERR>> AndThen(Func<Task<ResultErr<ERR>>> func) {
+    public async Task<ResultErr<ERR>> AndThenAsync(Func<Task<ResultErr<ERR>>> func) {
         if (Status == EResult.Err)
             return this;
         return await func();
     }
 
-    public async Task<Result<OK, ERR>> AndThen<OK>(Func<Task<Result<OK, ERR>>> func) {
+    public async Task<Result<OK, ERR>> AndThenAsync<OK>(Func<Task<Result<OK, ERR>>> func) {
         if (Status == EResult.Err)
             return ConvertTo<OK>();
         return await func();
     }
 
-    public async Task<ResultErr<ERR>> And(Func<Task<ResultErr<ERR>>> action) {
-        if (Status == EResult.Err)
-            return this;
-        return await action();
-    }
-
-    public async Task<ResultErr<TERR2>> MapErr<TERR2>(Func<ERR, Task<TERR2>> func) {
+    public async Task<ResultErr<TERR2>> MapErrAsync<TERR2>(Func<ERR, Task<TERR2>> func) {
         if (Status == EResult.Ok)
             return ResultErr<TERR2>.Ok();
         return ResultErr<TERR2>.Err(await func(Err()));
     }
+
 
     private static readonly ResultErr<ERR> _empty = new();
 

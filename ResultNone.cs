@@ -39,6 +39,12 @@ public readonly struct ResultNone : IEResult, IResultSwitch<object, object> {
         return action();
     }
 
+    public async Task<ResultNone> AndAsync(Func<Task<ResultNone>> action) {
+        if (Status == EResult.Err)
+            return this;
+        return await action();
+    }
+
     public static ResultNone Empty = new();
     public static ResultNone Err = new(EResult.Err, true);
     public static ResultNone Ok = new(EResult.Ok, true);
