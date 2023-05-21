@@ -109,6 +109,7 @@ public readonly struct Result<OK, ERR> : IEResult, IGetOk<OK>, IGetErr<ERR>, IRe
         return Result<OK, TERR2>.Err(await func(Err()));
     }
 
+
     public static Result<OK, ERR> Empty => new();
 
     public static Result<OK, ERR> Err(ERR value) {

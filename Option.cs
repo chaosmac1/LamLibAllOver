@@ -109,4 +109,24 @@ public readonly struct Option<T> {
             ? Empty
             : With(value);
     }
+
+    public static Option<T> IteratorAny<E>(IEnumerable<E> iter, Func<E, Option<T>> func) {
+        foreach (var e in iter) {
+            var option = func(e);
+            if (option.IsNotSet()) continue;
+            return option;
+        }
+
+        return Empty;
+    }
+
+    public static async Task<Option<T>> IteratorAnyAsync<E>(IEnumerable<E> iter, Func<E, Task<Option<T>>> func) {
+        foreach (var e in iter) {
+            var option = await func(e);
+            if (option.IsNotSet()) continue;
+            return option;
+        }
+
+        return Empty;
+    }
 }
