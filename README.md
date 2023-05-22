@@ -23,25 +23,82 @@ struct A() {}
 Light Result Pattern Like Rust.
 
 ## Create Result
-
+```csharp
+var resultErr = Result<int, string>.Err("Error Stack ...");
+var resultOk = Result<int, string>.Ok(42);
+```
 ## Check Status
-
+```csharp
+var resultErr = Result<int, string>.Err("Error Stack ...");
+if (resultErr == EResult.Err) {
+    // Error Case
+}
+```
 ## Get Ok
-
+```csharp
+var result = Result<int, string>.Ok(42);
+var num = result.Ok();
+```
 ## Get Err
-
+```csharp
+var resultErr = Result<int, string>.Err("Error Stack ...");
+var str = resultErr.Err();
+```
 ## Get OkOr
-
+```csharp
+var resultErr = Result<int, string>.Err("Error Stack ...");
+var num = resultErr.OkOr(1337); 
+// num == 1337
+```
 ## Get ErrOr
-
+```csharp
+var result = Result<int, string>.Ok(42);
+var str = result.ErrOr("TEXT");
+// str == "TEXT"
+```
 ## Get OkOrDefault
-
+```csharp
+var resultErr = Result<int, string>.Err("Error Stack ...");
+var num = resultErr.OkOrDefault(); 
+// num == 0
+```
 ## Get ErrOrDefault
-
+```csharp
+var result = Result<int, string>.Ok(42);
+var str = result.ErrOrDefault();
+// str == null
+```
 ## AndThen
+```csharp
+var num = Result<int, string>
+  .Ok(2)
+  .AndThen(x => Result<int, string>.Ok(x + 1))
+  .AndThen(x => Result<int, string>.Ok(x + 1))
+  .Ok();
+// num == 4
+```
 
+```csharp
+var res = Result<int, string>
+  .Ok(2)
+  .AndThen(x => Result<int, string>.Ok(x + 1))
+  .AndThen(x => Result<int, string>.Err("ERR"))
+  .AndThen(x => Result<int, string>.Ok(x + 1))
+  .Err();
+// res == "ERR"
+```
 ## And
+````csharp
 
+static Result<object, string> Fetch<T>(string url, out T) { ... }
+
+string v1;
+string v2;
+var res = Fetch("URL1", out v1).And(Fetch("URL2", out v2));
+if (res == EResult.ERR) {
+   // Err
+}
+````
 ## Map
 
 ## MapErr
