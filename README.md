@@ -8,6 +8,8 @@ Welcome to the LamLibAllOver! LamLibAllOver is a Lib handful of extra features a
 - Logger
 - Merge
 - ...
+
+
 [Wiki](https://github.com/chaosmac1/LamLibAllOver/wiki)
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
