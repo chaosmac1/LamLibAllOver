@@ -137,6 +137,12 @@ public readonly struct SResult<OK> : IEResult, IGetOk<OK>, IGetErr<SErrHolder>, 
             : ResultErr<SErrHolder>.Ok();
     }
 
+    public static implicit operator SResultErr(SResult<OK> result) {
+        return result == EResult.Err
+            ? SResultErr.Err(result.Err())
+            : SResultErr.Empty();
+    }
+
     public static bool operator ==(SResult<OK> result, EResult status) {
         return result.Status == status;
     }
