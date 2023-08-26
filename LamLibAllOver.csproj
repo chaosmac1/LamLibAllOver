@@ -12,8 +12,8 @@
         <RepositoryUrl>https://github.com/chaosmac1/LamLibAllOver</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Lam Lambda</PackageTags>
-        <PackageReleaseNotes>Add Iter Function For Result And Option</PackageReleaseNotes>
-        <PackageVersion>2.13.0</PackageVersion>
+        <PackageReleaseNotes>Add new Result Types</PackageReleaseNotes>
+        <PackageVersion>2.14.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -26,6 +26,7 @@
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <PlatformTarget>x64</PlatformTarget>
+        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     </PropertyGroup>
 
     <ItemGroup>
