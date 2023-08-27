@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>LibAllOver</Title>
-        <Description>A lib to make some things easier</Description>
+        <Description>Add more implicit operators</Description>
         <Copyright>Lambda/MarcelS</Copyright>
         <PackageProjectUrl>https://github.com/chaosmac1/LamLibAllOver</PackageProjectUrl>
         <PackageIcon>icon.png</PackageIcon>
@@ -13,7 +13,7 @@
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Lam Lambda</PackageTags>
         <PackageReleaseNotes>Add implicit operator</PackageReleaseNotes>
-        <PackageVersion>2.15.0</PackageVersion>
+        <PackageVersion>2.16.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

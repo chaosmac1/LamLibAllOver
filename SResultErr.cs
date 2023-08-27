@@ -106,6 +106,12 @@ public readonly struct SResultErr : IEResult, IGetErr<SErrHolder>, IResultSwitch
         return this;
     }
 
+    public SResult<Ok> Map<Ok>(Func<Ok> action) {
+        if (Status == EResult.Ok)
+            return SResult<Ok>.Ok(action());
+        return ConvertTo<Ok>();
+    }
+
     public static SResultErr Empty() {
         return _empty;
     }
@@ -149,6 +155,13 @@ public readonly struct SResultErr : IEResult, IGetErr<SErrHolder>, IResultSwitch
     public SResult<OK> ConvertTo<OK>() {
         if (this == EResult.Ok)
             throw new Exception("Can Not Convert To SResult if Status Ok");
+
+        return SResult<OK>.Err(Err());
+    }
+
+    public SResult<OK> ConvertWithOk<OK>(OK ok) {
+        if (this == EResult.Ok)
+            return SResult<OK>.Ok(ok);
 
         return SResult<OK>.Err(Err());
     }
