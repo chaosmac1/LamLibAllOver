@@ -5,15 +5,15 @@
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>LibAllOver</Title>
-        <Description>Add more implicit operators</Description>
+        <Description>Lib For Basic Stuff</Description>
         <Copyright>Lambda/MarcelS</Copyright>
         <PackageProjectUrl>https://github.com/chaosmac1/LamLibAllOver</PackageProjectUrl>
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/chaosmac1/LamLibAllOver</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Lam Lambda</PackageTags>
-        <PackageReleaseNotes>Add implicit operator</PackageReleaseNotes>
-        <PackageVersion>2.16.0</PackageVersion>
+        <PackageReleaseNotes>Exception Can Not Get In SErrHolder</PackageReleaseNotes>
+        <PackageVersion>2.17.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

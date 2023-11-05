@@ -34,6 +34,14 @@ public struct SErrHolder {
         return new SErrHolder(value, value is null ? "" : null);
     }
 
+    public bool IsException() {
+        return _exception is not null;
+    }
+
+    public Exception? GetExceptionOrNull() {
+        return _exception;
+    }
+
     public override string ToString() {
         if (_exception is not null) return _exception.ToString();
         if (_str is not null) return _str;
