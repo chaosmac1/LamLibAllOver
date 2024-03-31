@@ -143,6 +143,10 @@ public readonly struct SResult<OK> : IEResult, IGetOk<OK>, IGetErr<SErrHolder>, 
             : SResultErr.Empty();
     }
 
+    public Option<OK> ToOption() {
+        return this == EResult.Err ? default : Option<OK>.NullSplit(Ok());
+    }
+
     public static bool operator ==(SResult<OK> result, EResult status) {
         return result.Status == status;
     }
