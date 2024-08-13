@@ -1,4 +1,4 @@
-namespace LamLibAllOver;
+namespace LamLibAllOver.ErrorHandling;
 
 public readonly struct ResultOpen<TOk, EErr> {
     public readonly EResult Status;

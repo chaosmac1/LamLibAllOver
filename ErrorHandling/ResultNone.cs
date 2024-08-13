@@ -1,6 +1,6 @@
 // ReSharper disable InconsistentNaming
 
-namespace LamLibAllOver;
+namespace LamLibAllOver.ErrorHandling;
 
 public readonly struct ResultNone : IEResult, IResultSwitch<object, object> {
     private readonly EResult Status;

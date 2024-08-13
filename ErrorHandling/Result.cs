@@ -1,6 +1,14 @@
-namespace LamLibAllOver;
+using LamLibAllOver.ErrorHandling.Interface;
+using NLog;
 
-public readonly struct Result<OK, ERR> : IEResult, IGetOk<OK>, IGetErr<ERR>, IResultSwitch<OK, ERR> {
+namespace LamLibAllOver.ErrorHandling;
+
+public readonly struct Result<OK, ERR> :
+    IEResult,
+    IGetOk<OK>,
+    IGetErr<ERR>,
+    IResultSwitch<OK, ERR>,
+    IResultError<Result<OK, ERR>, ERR> {
     private readonly EResult Status;
     private readonly bool StatusSet;
     private readonly OK Value;
@@ -160,5 +168,29 @@ public readonly struct Result<OK, ERR> : IEResult, IGetOk<OK>, IGetErr<ERR>, IRe
 
         err = Value2;
         return EResult.Err;
+    }
+
+    public Result<OK, ERR> LogIfError(Logger logger) {
+        if (Status == EResult.Ok) return this;
+
+        if (Err() is ILogOutput selfLogger)
+            selfLogger.LogError(logger);
+        else
+            logger.Error(Err() is null ? "NULL" : Err()!.ToString());
+
+        return this;
+    }
+
+    public Result<OK, ERR> LogIfError(Logger logger, string message) {
+        if (Status == EResult.Ok) return this;
+
+        if (Err() is ILogOutput selfLogger)
+            selfLogger.LogError(logger, message);
+        else
+            logger.Error(
+                (Err() is null ? "NULL" : Err()!.ToString()) + "\n\n" + message
+            );
+
+        return this;
     }
 }

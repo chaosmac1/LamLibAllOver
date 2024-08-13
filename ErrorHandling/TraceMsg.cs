@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace LamLibAllOver;
+namespace LamLibAllOver.ErrorHandling;
 
 public static class TraceMsg {
     public static string WithMessage(string message) {

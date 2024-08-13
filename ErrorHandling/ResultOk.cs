@@ -1,4 +1,4 @@
-namespace LamLibAllOver;
+namespace LamLibAllOver.ErrorHandling;
 
 public readonly struct ResultOk<T> : IEResult, IGetOk<T>, IResultSwitch<T, object> {
     private readonly EResult Status;

@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace LamLibAllOver;
+namespace LamLibAllOver.ErrorHandling;
 
 public static class ResultStack {
     public static ResultErr<string> RErrMsgErr(string message) {

@@ -1,4 +1,4 @@
-namespace LamLibAllOver;
+namespace LamLibAllOver.ErrorHandling;
 
 public readonly struct Option<T> {
     private readonly T _value;

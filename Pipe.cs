@@ -1,3 +1,5 @@
+using LamLibAllOver.ErrorHandling;
+
 namespace LamLibAllOver;
 
 public struct Pipe<T, Err> where T : class {

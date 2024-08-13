@@ -5,15 +5,18 @@
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>LibAllOver</Title>
-        <Description>Lib For Basic Stuff</Description>
+        <Description>Change Logging Handling</Description>
         <Copyright>Lambda/MarcelS</Copyright>
         <PackageProjectUrl>https://github.com/chaosmac1/LamLibAllOver</PackageProjectUrl>
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/chaosmac1/LamLibAllOver</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Lam Lambda</PackageTags>
-        <PackageReleaseNotes>Add New ErrorType For Domain Handling</PackageReleaseNotes>
-        <PackageVersion>2.18.0</PackageVersion>
+        <PackageReleaseNotes>- Remove Self Logger
+            - Add NLog
+            - Add Logging Handling For Result Type
+        </PackageReleaseNotes>
+        <PackageVersion>3.0.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -31,7 +34,12 @@
 
     <ItemGroup>
         <None Include="icon.png" Pack="true" PackagePath="\"/>
+        <PackageReference Include="NLog" Version="5.3.3"/>
         <PackageReference Include="Portable.BouncyCastle" Version="1.9.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="ErrorDomain.cs"/>
     </ItemGroup>
 
 </Project>

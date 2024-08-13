@@ -1,6 +1,9 @@
-namespace LamLibAllOver;
+using LamLibAllOver.ErrorHandling.Interface;
+using NLog;
 
-public struct SErrHolder {
+namespace LamLibAllOver.ErrorHandling;
+
+public struct SErrHolder : ILogOutput {
     private readonly Option<ErrorDomain> _errorDomain;
     private readonly Option<Exception> _exception;
     private readonly Option<string> _str;
@@ -69,5 +72,25 @@ public struct SErrHolder {
         if (_str.IsSet()) return _str.Unwrap();
         if (_errorDomain.IsSet()) return _errorDomain.Unwrap().ToString();
         return "";
+    }
+
+    public void LogError(Logger logger, string message) {
+        if (_errorDomain.IsSet())
+            _errorDomain.Unwrap().LogError(logger, message);
+        else if (_exception.IsSet())
+            logger.Error(_exception.Unwrap(), message);
+        else if (_str.IsSet()) logger.Error(_str + "\n\n\n" + message);
+
+        logger.Error("No Error set; " + message);
+    }
+
+    public void LogError(Logger logger) {
+        if (_errorDomain.IsSet())
+            _errorDomain.Unwrap().LogError(logger);
+        else if (_exception.IsSet())
+            logger.Error(_exception.Unwrap());
+        else if (_str.IsSet()) logger.Error(_str);
+
+        logger.Error("No Error set; ");
     }
 }

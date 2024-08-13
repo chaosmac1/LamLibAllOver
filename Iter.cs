@@ -1,3 +1,5 @@
+using LamLibAllOver.ErrorHandling;
+
 namespace LamLibAllOver;
 
 public static class Iter {

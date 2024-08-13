@@ -1,4 +1,4 @@
-namespace LamLibAllOver;
+namespace LamLibAllOver.ErrorHandling;
 
 public static class TryCatch {
     public static ResultErr<Exception> VoidAction(Action action) {
