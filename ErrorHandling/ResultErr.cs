@@ -183,4 +183,8 @@ public readonly struct ResultErr<ERR> :
 
         return this;
     }
+
+    public TRes Match<TRes>(ResultErr<ERR> self, Func<ERR, TRes> thenErr, Func<TRes> thenOk) {
+        return self == EResult.Err ? thenOk() : thenErr(self.Err());
+    }
 }

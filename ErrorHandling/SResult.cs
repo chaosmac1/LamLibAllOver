@@ -199,4 +199,8 @@ public readonly struct SResult<OK> :
 
         return this;
     }
+
+    public TRes Match<TRes>(Func<SErrHolder, TRes> thenErr, Func<OK, TRes> thenOk) {
+        return this == EResult.Err ? thenOk(Ok()) : thenErr(Err());
+    }
 }

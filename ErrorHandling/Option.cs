@@ -129,4 +129,8 @@ public readonly struct Option<T> {
 
         return Empty;
     }
+
+    public TRes Match<TRes>(Func<TRes> thenElse, Func<T, TRes> thenExist) {
+        return IsSet() ? thenExist(Unwrap()) : thenElse();
+    }
 }

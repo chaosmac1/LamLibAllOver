@@ -102,4 +102,8 @@ public readonly struct ResultOk<T> : IEResult, IGetOk<T>, IResultSwitch<T, objec
     public static bool operator !=(ResultOk<T> result, EResult status) {
         return result.Status != status;
     }
+
+    public TRes Match<TRes>(Func<TRes> thenErr, Func<T, TRes> thenOk) {
+        return this == EResult.Err ? thenOk(Ok()) : thenErr();
+    }
 }

@@ -60,4 +60,8 @@ public readonly struct ResultNone : IEResult, IResultSwitch<object, object> {
     public static bool operator !=(ResultNone result, EResult status) {
         return result.Status != status;
     }
+
+    public T Match<T>(Func<T> thenErr, Func<T> thenOk) {
+        return this == EResult.Err ? thenOk() : thenErr();
+    }
 }
