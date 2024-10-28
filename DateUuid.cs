@@ -99,10 +99,22 @@ public struct DateUuid : IEquatable<DateUuid>, IComparable<DateUuid> {
         return r * (l < 0 ? -1 : 1);
     }
 
+    public override bool Equals(object? obj) {
+        return obj is DateUuid other && Equals(other);
+    }
+
     public bool Equals(DateUuid other) {
         return this == other;
     }
 
+    public override int GetHashCode() {
+        unsafe {
+            fixed (void* dataPointer = data) {
+                var aPtr = (long*)dataPointer;
+                return (aPtr[0] ^ aPtr[1]).GetHashCode();
+            }
+        }
+    }
 
     public int CompareTo(DateUuid otherValueDateUuid) {
         Int128 self;
