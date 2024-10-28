@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>LibAllOver</Title>
-        <Description>Change Logging Handling</Description>
+        <Description>Add Match</Description>
         <Copyright>Lambda/MarcelS</Copyright>
         <PackageProjectUrl>https://github.com/chaosmac1/LamLibAllOver</PackageProjectUrl>
         <PackageIcon>icon.png</PackageIcon>
@@ -16,7 +16,7 @@
             - Add NLog
             - Add Logging Handling For Result Type
         </PackageReleaseNotes>
-        <PackageVersion>3.0.0</PackageVersion>
+        <PackageVersion>3.2.0</PackageVersion>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <LangVersion>11</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
